@@ -11,7 +11,7 @@ const GradeSelector: React.FC<GradeSelectorProps> = ({ selectedGrade, onSelectGr
   const colorScheme = useColorScheme();
   const isDark = colorScheme === 'dark';
 
-  const grades = Array.from({ length: 10 }, (_, i) => i + 1);
+  const grades = Array.from({ length: 12 }, (_, i) => i + 1);
 
   return (
     <View style={styles.container}>
