@@ -1,18 +1,17 @@
 import { Tabs } from 'expo-router';
-import { useColorScheme } from 'react-native';
+import { useColorScheme, View, Text, Image } from 'react-native';
 import { Book, Home, Search, Settings, Bookmark } from 'lucide-react-native';
-
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-  const primaryColor = '#3B82F6'; // Blue
+  const primaryColor = '#3B82F6';
 
   return (
     <Tabs
       screenOptions={{
         headerTitleAlign: 'center',
         tabBarActiveTintColor: primaryColor,
-        tabBarInactiveTintColor: colorScheme === 'dark' ? '#888' : '#888',
+        tabBarInactiveTintColor: '#888',
         tabBarStyle: {
           backgroundColor: colorScheme === 'dark' ? '#1F2937' : '#FFFFFF',
         },
@@ -20,40 +19,53 @@ export default function TabLayout() {
           backgroundColor: colorScheme === 'dark' ? '#1F2937' : '#FFFFFF',
         },
         headerTintColor: colorScheme === 'dark' ? '#FFFFFF' : '#000000',
-      }}>
+
+        headerTitle: 'Aryan Coaching Center',
+
+        headerLeft: () => (
+          <View style={{ flexDirection: 'row', alignItems: 'center', marginLeft: 12 }}>
+            <Image
+              source={require('../../assets/images/logo1.png')}  
+              style={{ width: 40, height: 40, resizeMode: 'contain' }}
+            />
+            
+          </View>
+        ),
+      }}
+    >
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Home',
           tabBarIcon: ({ color, size }) => <Home size={size} color={color} />,
+          title: '',
         }}
       />
       <Tabs.Screen
         name="subjects"
         options={{
-          title: 'Subjects',
           tabBarIcon: ({ color, size }) => <Book size={size} color={color} />,
+          title: '',
         }}
       />
       <Tabs.Screen
         name="search"
         options={{
-          title: 'Search',
           tabBarIcon: ({ color, size }) => <Search size={size} color={color} />,
+          title: '',
         }}
       />
       <Tabs.Screen
         name="bookmarks"
         options={{
-          title: 'Bookmarks',
           tabBarIcon: ({ color, size }) => <Bookmark size={size} color={color} />,
+          title: '',
         }}
       />
       <Tabs.Screen
         name="settings"
         options={{
-          title: 'Settings',
           tabBarIcon: ({ color, size }) => <Settings size={size} color={color} />,
+          title: '',
         }}
       />
     </Tabs>
